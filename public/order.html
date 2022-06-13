@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/order.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/template-web.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">确认订单</div>
+    </div>
+    <div class="main">
+        <div class="address-wrap">
+            <!-- <div class="persion-info"></div> -->
+            <!-- <div class="address"></div> -->
+            <div class="arrow"></div>
+            <div class="address-border-wrap">
+                <div class="trapezoid style1"></div>
+                <div class="trapezoid style2"></div>
+                <div class="trapezoid style1"></div>
+                <div class="trapezoid style2"></div>
+                <div class="trapezoid style1"></div>
+                <div class="trapezoid style2"></div>
+                <div class="trapezoid style1"></div>
+                <div class="trapezoid style2"></div>
+                <div class="trapezoid style1"></div>
+                <div class="trapezoid style2"></div>
+            </div>
+        </div>
+        <div class="goods-wrap">
+            <script id="tpl-settle-goods" type="text/html">
+                {{each data}}
+                {{if $value.checked == true}}
+                <div class="goods-list" id="{{$value.gid}}">
+                    <div class="image">
+                        <img src="{{$value.img}}" alt="">
+                    </div>
+                    <div class="goods-param">
+                        <div class="title">{{$value.title}}</div>
+                        <div class="attr">
+                            {{each $value.attrs item}}
+                            <span>{{item.title}}： {{item.param[0].title}}</span>
+                            {{/each}}
+                        </div>
+                        <div class="amount">x {{$value.amount}}</div>
+                        <div class="price">￥{{$value.price}}</div>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </script>
+        </div>
+        <ul class="total-wrap">
+            <li>商品总额</li>
+            <li class="sum"></li>
+        </ul>
+        <ul class="total-wrap">
+            <li>运费</li>
+            <li class="freight"></li>
+        </ul>
+    </div>
+    <div class="balance-wrap">
+        <div class="price-wrap">
+            <span>实际金额：</span>
+            <span class="total"></span>
+        </div>
+        <div class="balance-btn">提交订单</div>
+    </div>
+</body>
+<script src="./javascripts/order.js"></script>
+</html>

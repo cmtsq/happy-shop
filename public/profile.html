@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人资料</title>
+    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="stylesheet" href="./stylesheets/gender.css">
+    <link rel="stylesheet" href="./stylesheets/swiper-bundle.css">
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/css.js"></script>
+    <script src="./javascripts/resize.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">个人资料</div>
+        <div class="right-btn">保存</div>
+    </div>
+    <div class="main">
+        <ul class="head">
+            <li>头像</li>
+            <li><img src="./images/user/my/default-head.png" alt=""><input type="file"></li>
+        </ul>
+        <ul class="list">
+            <li>昵称</li>
+            <li><input type="text" placeholder="请设置昵称" class="nickname"></li>
+            <li class="arrow"></li>
+        </ul>
+        <ul class="list">
+            <li>性别</li>
+            <li><input type="text" placeholder="请选择性别" readonly='readonly' class="gender"></li>
+            <li class="arrow"></li>
+        </ul>
+    </div>
+    <div class="action-sheet">
+        <div class="menu-title">
+            <div class="menu-name">
+                性别选择
+            </div>
+            <div class="close-icon">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+        </div>
+        <ul class="select">
+            <li num="1">男</li>
+            <li num="2">女</li>
+        </ul>
+    </div>
+<div class="mask"></div>
+<div class="van-toast">
+    <div class="van-toast_text"></div>
+</div>
+<div class="bottom-toast">
+    <div class="toast"></div>
+</div>
+</body>
+<script src="./javascripts/profile.js"></script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/bottom.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/template-web.js"></script>
+    <title>购物车</title>
+</head>
+
+<body>
+    <div class="cart-main">
+        <div class="head">
+            <div class="back"></div>
+            <div class="title">购物车</div>
+        </div>
+        <div class="main-shopping">
+            <script id="tpl-cart-goods" type="text/html">
+                {{each data}}
+                <div class="cart-list" id="{{$value.gid}}">
+                    {{if $value.checked==true}}
+                    <div class="select-btn active"></div>
+                    {{else}}
+                    <div class="select-btn"></div>
+                    {{/if}}
+                    <div class="image-wrap">
+                        <div class="image">
+                            <img src="{{$value.img}}">
+                        </div>
+                        <div class="del">删除</div>
+                    </div>
+                    <div class="goods-wrap">
+                        <div class="goods-title">{{$value.title}}</div>
+                        <div class="goods-attr">
+                            {{each $value.attrs item}}
+                            <span>{{item.title}}： {{item.param[0].title}}</span>
+                            {{/each}}
+                        </div>
+                        <div class="buy-wrap">
+                            <div class="price">¥{{$value.price}}</div>
+                            <div class="amount-input-wrap">
+                                <div class="btn dec">- </div>
+                                <div class="amount-input">
+                                    <input type="tel" value="{{$value.amount}}">
+                                </div>
+                                <div class="btn inc">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </script>
+        </div>
+        <div class="bottom-head">
+            <div class="select">
+                <div class="select-wrap">
+                    <div class="selectbtn"></div>
+                    <div class="select-all">全选</div>
+                </div>
+                <div class="total">
+                    运费：<span class="freight">￥0</span>
+                    合计：<span class="sum">￥0</span>
+                </div>
+            </div>
+            <div class="settle">去结算</div>
+        </div>
+    </div>
+    <div class="bottom-toast">
+        <div class="toast"></div>
+    </div>
+    <div id="confirm">
+        <div id="prompt">
+            确认要删除吗？
+            <div class="yes">确认</div>
+            <div class="no">取消</div>
+        </div>
+    </div>
+    <div id="footer">
+        <ul class="bottom-nav">
+            <li class="footer-img"></li>
+            <li>首页</li>
+        </ul>
+        <ul class="bottom-nav">
+            <li class="footer-img"></li>
+            <li>购物车</li>
+            <li class="spot"></li>
+        </ul>
+        <ul class="bottom-nav">
+            <li class="footer-img"></li>
+            <li>我的</li>
+        </ul>
+    </div>
+</body>
+<script src="./javascripts/cart.js"></script>
+</html>

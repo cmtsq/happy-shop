@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择收货地址</title>
+    <link rel="stylesheet" href="./css/adress.css">
+    <link rel="stylesheet" href="./stylesheets/alert.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/alert.js"></script>
+    <script src="./javascripts/template-web.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">选择收货地址</div>
+    </div>
+    <div class="main">
+        <div class="address-nav">
+            <div class="address-nav-name-1">配送地址</div>
+            <div class="address-nav-name-2">+添加收货地址</div>
+        </div>
+        <div class="box">
+            <script id="tpl-address-list" type="text/html">
+                {{each data}}
+                <div class="address-list" id="{{$value.aid}}">
+                    {{if $value.isdefault==1}}
+                    <div class="address-info-wrap change">
+                        <div class="check-mark"></div>
+                        <div class="address-info">
+                            <div class="person">
+                                <span>{{$value.name}}</span>
+                                <span>{{$value.cellphone}}</span>
+                            </div>
+                            <div class="address change">
+                                <span class="text">
+                                    {{$value.province}}
+                                    {{$value.city}}
+                                    {{$value.area}}
+                                    {{$value.address}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="address-info-wrap">
+                        <div class="address-info">
+                            <div class="person">
+                                <span>{{$value.name}}</span>
+                                <span>{{$value.cellphone}}</span>
+                            </div>
+                            <div class="address">
+                                <span class="text">
+                                    {{$value.province}}
+                                    {{$value.city}}
+                                    {{$value.area}}
+                                    {{$value.address}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                    <div class="handle-wrap">
+                        <div class="edit"></div>
+                        <div class="del"></div>
+                    </div>
+                </div>
+                {{/each}}
+            </script>
+        </div>
+        <div class="no-data">您还没有添加收货地址！</div> 
+    </div>
+    <div id="confirm">
+        <div id="prompt">
+            确认要删除吗？
+            <div class="yes">确认</div>
+            <div class="no">取消</div>
+        </div>
+    </div>
+</body>
+<script src="./javascripts/address.js"></script>
+</html>

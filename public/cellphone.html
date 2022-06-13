@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定手机号</title>
+    <link rel="stylesheet" href="./css/cellphone.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">绑定手机</div>
+    </div>
+    <div class="main">
+        <div class="tip">
+            <div class="icon"></div>
+            <div class="text">新手机号验证后，即可绑定成功！</div>
+        </div>
+        <div class="input-wrap">
+            <input type="tel" placeholder="绑定手机号" class="cellphone">
+        </div>
+        <div class="input-wrap">
+            <input type="text" placeholder="请输入短信验证码" class="code">
+            <div class="code-btn">获取验证码</div>
+        </div>
+        <div class="save-btn">下一步</div>
+    </div>
+    <div class="bottom-toast">
+        <div class="toast"></div>
+    </div>
+</body>
+<script src="./javascripts/cellphone.js"></script>
+</html>

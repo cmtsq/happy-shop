@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/orderlist.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="./stylesheets/alert.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/bottom.js"></script>
+    <script src="./javascripts/alert.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">全部订单</div>
+    </div>
+    <div class="tags-wrap">
+        <div class="tags active">全部订单</div>
+        <div class="tags">待付款</div>
+        <div class="tags">待收货</div>
+        <div class="tags">待评价</div>
+    </div>
+    <div class="main"></div>
+    <div id="confirm">
+        <div id="prompt">
+            确认要取消订单吗？
+            <div class="yes">确认</div>
+            <div class="no">取消</div>
+        </div>
+    </div>
+</body>
+<script>
+    //返回上一页
+    $('.back').click(function(){
+        history.back(-1);
+    });
+    //获取用户数据
+    var user = JSON.parse(localStorage.getItem('user'));
+    var url = location.search;
+    if(url.indexOf("?") != -1) {
+        var str = url.substr(1).split('=');
+        str.shift().toString();
+    }
+</script>
+<script src="./javascripts/orderlist.js"></script>
+</html>

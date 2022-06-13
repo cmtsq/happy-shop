@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评价</title>
+    <link rel="stylesheet" href="./css/review.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">评价</div>
+    </div>
+    <div class="main">
+        <div class="review-star">
+            <ul class="service">
+                <li>整体</li>
+                <li class="stars-one">
+                    <div class="stars active"></div><div class="stars active"></div>
+                    <div class="stars active"></div>
+                    <div class="stars active"></div>
+                    <div class="stars active"></div>
+                </li>
+            </ul>
+            <ul class="service">
+                <li>服务</li>
+                <li class="stars-two">
+                    <div class="stars active"></div><div class="stars active"></div>
+                    <div class="stars active"></div>
+                    <div class="stars active"></div>
+                    <div class="stars active"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="content-wrap">
+            <textarea  placeholder="来分享你的消费感受吧!" class="content"></textarea>
+        </div>
+        <button type="button" class="submit">提交</button>
+    </div>
+    <div class="bottom-toast">
+        <div class="toast"></div>
+    </div>
+</body>
+<script>
+    var url = location.search;
+    var obj = new Object();
+    if(url.indexOf("?") != -1) {
+        var str = url.substr(1).split('&');
+        for(var i=0;i<str.length;i++){
+            obj[str[i].split("=")[0]]=parseInt(str[i].split("=")[1]);
+        }
+    }
+</script>
+<script src="./javascripts/review.js"></script>
+</html>

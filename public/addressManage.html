@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收货地址管理</title>
+    <link rel="stylesheet" href="./css/addressManage.css">
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/template-web.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">收货地址管理</div>
+    </div>
+    <div class="main">
+        <script id="tpl-address-list" type="text/html">
+            {{each data}}
+            <div class="list" id="{{$value.aid}}">
+                <div class="name-wrap">
+                    <span>{{$value.name}}</span>
+                    <span>{{$value.cellphone}}</span>
+                </div>
+                {{if $value.isdefault==1}}
+                <div class="address change">
+                    {{$value.province}}
+                    {{$value.city}}
+                    {{$value.area}}
+                    {{$value.address}}
+                </div>
+                {{else}}
+                <div class="address">
+                    {{$value.province}}
+                    {{$value.city}}
+                    {{$value.area}}
+                    {{$value.address}}
+                </div>
+                {{/if}}
+                <div class="right-arrow"></div>
+            </div>
+            {{/each}}
+        </script>
+    </div>
+    <div class="add-btn">添加新地址</div>
+</body>
+<script src="./javascripts/addressManage.js"></script>
+</html>

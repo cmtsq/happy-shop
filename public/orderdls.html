@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单详情</title>
+    <link rel="stylesheet" href="./css/orderdls.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/template-web.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">订单详情</div>
+    </div>
+    <div class="main">
+        <script id="tpl-order-detail" type="text/html">
+            <div class="ordernum">订单编号：{{data.ordernum}}</div>
+            <div class="address-wrap">
+                <div class="skew-wrap">
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                </div>
+                <div class="address-info">
+                    <div class="name"><img src="./images/common/my2.png"alt="">{{data.name}}</div>
+                    <div class="cellphone"><img src="./images/common/cellphone.png"alt="">{{data.cellphone}}</div>
+                    <div class="address">{{data.province+data.city+data.area+data.address}}</div>
+                </div>
+                <div class="skew-wrap">
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                    <div class="skew"></div>
+                </div>
+            </div>
+            <div class="buy-title">购买的宝贝</div>
+            <div class="box">
+                {{each data.goods}}
+                <div class="goods-list" id="{{$value.gid}}">
+                    <div class="image">
+                        <img src="{{$value.image}}" alt="">
+                    </div>
+                    <div class="goods-info">
+                        <div class="title">{{$value.title}}</div>
+                        <div class="attr">
+                            <span class="amount">x {{$value.amount}}</span>
+                            {{each $value.param item}}
+                            <span>{{item.title}}： {{item.param.title}}</span>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="price">¥{{$value.price}}</div>
+                </div>
+                {{/each}}
+            </div>
+            <ul class="order-status">
+                <li>支付状态</li>
+                <li>{{data.status==0?"待付款":data.status==1?"待收货":"已收货"}}</li>
+            </ul>
+            <div class="total-wrap">
+                <ul class="total">
+                    <li>商品总额</li>
+                    <li>￥{{data.total}}</li>
+                </ul>
+                <ul class="total">
+                    <li>运费</li>
+                    <li>￥{{data.freight}}</li>
+                </ul>
+            </div>
+            <div class="true-total">
+                <div class="total">实付金额：<span>￥{{data.truetotal}}</span></div>
+                <div class="order-time">下单时间：{{data.ordertime}}</div>
+            </div>
+        </script>
+    </div>
+</body>
+<script>
+    var url = location.search;
+    if(url.indexOf("?") != -1) {
+        var str = url.substr(1).split('=');
+        str.shift().toString();
+    }
+</script>
+<script src="./javascripts/orderdls.js"></script>
+</html>

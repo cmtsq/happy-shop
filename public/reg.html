@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reg.css">
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="back"></div>
+            <div class="title">会员注册</div>
+        </div>
+        <div class="reg-main">
+            <div class="inputs">
+                <input type="text" placeholder="请输入验证码" id="code-num">
+                <div class="code-img">
+                   <img src="http://vueshop.glbuys.com/api/vcode/chkcode?token=1ec949a15fb709370f" alt="" id="re">
+                </div>
+            </div>
+            <div class="cell-wrap">
+                <div class="cellphone">
+                    <input type="tel" placeholder="请输入手机号" id="phone">
+                </div>
+                <div class="code-btn">获取短信验证码</div>
+            </div>
+            <div class="code-wrap">
+                <input type="text" placeholder="请输入短信验证码" >
+            </div>
+            <div class="password-wrap">
+                <div class="password">
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <div class="switch-wrap">
+                    <div role="switch" aria-checked="true" class="van-switch">
+                        <div class="switch_node"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sure">注册</div>
+        </div>
+    </div>
+    <div class="bottom-toast">
+        <div class="toast">请输入图文验证码</div>
+    </div>
+    <script src="./javascripts/reg.js"></script>
+</body>
+</html>

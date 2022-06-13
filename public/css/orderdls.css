@@ -1,0 +1,322 @@
+@media screen and (min-width: 320px) {
+  html,
+  body {
+    font-size: 17.06px !important;
+  }
+}
+@media screen and (min-width: 360px) {
+  html,
+  body {
+    font-size: 19.2px !important;
+  }
+}
+@media screen and (min-width: 375px) {
+  html,
+  body {
+    font-size: 20px !important;
+  }
+}
+@media screen and (min-width: 400px) {
+  html,
+  body {
+    font-size: 21.3px !important;
+  }
+}
+@media screen and (min-width: 411px) {
+  html,
+  body {
+    font-size: 21.92px !important;
+  }
+}
+@media screen and (min-width: 414px) {
+  html,
+  body {
+    font-size: 22.08px !important;
+  }
+}
+@media screen and (min-width: 480px) {
+  html,
+  body {
+    font-size: 25.6px !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 40.96px !important;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html,
+  body {
+    font-size: 54.61px !important;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.page {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+li {
+  list-style: none;
+}
+button,
+input {
+  border-radius: 0;
+  border: 0;
+  outline: none;
+}
+.header {
+  width: 100%;
+  height: 2.5rem;
+  background-color: #fff;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 0.3125rem;
+  box-sizing: border-box;
+}
+.header .back {
+  width: 1.875rem;
+  height: 1.875rem;
+  background-image: url(../images/home/goods/back.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.header .title {
+  width: 79%;
+  height: auto;
+  font-size: 0.75rem;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main {
+  width: 100%;
+  padding-top: 2.5rem;
+}
+.main .ordernum {
+  width: auto;
+  height: auto;
+  font-size: 0.7rem;
+  padding-left: 2%;
+  padding-top: 0.5rem;
+}
+.main .address-wrap {
+  width: 100%;
+  margin-top: 0.6rem;
+}
+.main .address-wrap .skew-wrap {
+  width: 100%;
+  height: 0.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.main .address-wrap .skew-wrap .skew {
+  width: 5%;
+  height: 100%;
+  transform: skew(-40deg, 0deg);
+  -webkit-transform: skew(-40deg, 0deg);
+  background-color: #a2dafb;
+}
+.main .address-wrap .address-info {
+  width: 100%;
+  height: 5rem;
+  background-color: #fffaf0;
+  position: relative;
+  z-index: 1;
+}
+.main .address-wrap .address-info .name {
+  width: auto;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  left: 2%;
+  top: 0.8125rem;
+  font-size: 0.7rem;
+}
+.main .address-wrap .address-info .name img {
+  width: 1.125rem;
+  height: 1.125rem;
+  vertical-align: bottom;
+}
+.main .address-wrap .address-info .cellphone {
+  width: auto;
+  height: auto;
+  position: absolute;
+  right: 10%;
+  top: 0.8125rem;
+  font-size: 0.7rem;
+}
+.main .address-wrap .address-info .cellphone img {
+  width: 1.125rem;
+  height: 1.125rem;
+  vertical-align: bottom;
+}
+.main .address-wrap .address-info .address {
+  width: 95%;
+  height: 2.1875rem;
+  overflow: hidden;
+  font-size: 0.7rem;
+  position: absolute;
+  z-index: 1;
+  left: 2%;
+  top: 3.125rem;
+  color: #848689;
+}
+.main .buy-title {
+  height: 2.1875rem;
+  font-size: 0.7rem;
+  line-height: 2.1875rem;
+}
+.main .buy-title,
+.main .goods-list {
+  width: 100%;
+  border-bottom: 1px solid #efefef;
+  padding-left: 2%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.main .goods-list {
+  height: 4.375rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  padding-right: 2%;
+}
+.main .goods-list .image {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+.main .goods-list .image img {
+  width: 100%;
+  height: 100%;
+}
+.main .goods-list .goods-info {
+  width: 65%;
+  height: auto;
+}
+.main .goods-list .goods-info .title {
+  width: 100%;
+  height: 2.1875rem;
+  font-size: 0.7rem;
+}
+.main .goods-list .goods-info .attr {
+  width: 100%;
+  height: auto;
+  font-size: 0.6rem;
+  margin-top: 0.5rem;
+}
+.main .goods-list .goods-info .attr span {
+  padding-right: 0.8125rem;
+}
+.main .goods-list .goods-info .attr .amount {
+  color: #848689;
+}
+.main .goods-list .price {
+  font-size: 0.7rem;
+}
+.main .order-status {
+  width: 100%;
+  height: 2.1875rem;
+  border-bottom: 1px solid #efefef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  font-size: 0.7rem;
+  padding-left: 2%;
+  padding-right: 2%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.main .total-wrap {
+  width: 100%;
+  height: 3.75rem;
+  border-bottom: 1px solid #efefef;
+}
+.main .total-wrap .total {
+  width: 100%;
+  height: auto;
+  font-size: 0.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-top: 0.875rem;
+}
+.main .total-wrap .total li:nth-child(2) {
+  color: #f15353;
+}
+.main .true-total {
+  width: 100%;
+  height: 2.5rem;
+}
+.main .true-total .total {
+  width: auto;
+  text-align: right;
+  font-size: 0.7rem;
+  padding-right: 2%;
+  margin-top: 0.5rem;
+}
+.main .true-total .total span {
+  color: #f15353;
+}
+.main .true-total .order-time {
+  width: auto;
+  text-align: right;
+  font-size: 0.7rem;
+  padding-right: 2%;
+  margin-top: 0.25rem;
+  color: #848689;
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width",initial-scale=1, maximum-scale=1,user-scable=no/>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="stylesheets/swiper-bundle.min.css">
+    <script src="./javascripts/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/bottom.js"></script>
+    <!-- <script type = "module" src="./javascripts/page.js"></script> -->
+    <title>首页</title>
+</head>
+<body>
+    <div>
+        <div id="nav">
+            <div class="icon"></div>
+            <div class="nav-search">
+                <div class="search-icon"></div>
+                <div class="text">请输入宝贝名称</div>
+            </div>
+            <div class="login">登录</div>
+        </div>
+        <div class="swiper-container">
+            <!-- 轮播 -->
+            <div class="swiper-wrapper">
+                <script id="tpl-swiperList" type="text/html">
+                    {{each data}}
+                    <div class="swiper-slide">
+                        <img src="{{$value.image}}">
+                    </div>
+                    {{/each}}
+                </script>
+            </div>
+            <div class="swiper-pagination" style="width: 100%"></div>
+        </div>
+        <!-- 导航栏 -->
+        <div class="quick-nav">
+            <script id="tpl-nav" type="text/html">
+                {{each data}}
+                <ul class="item" id="{{$value.cid}}">
+                    <li>
+                        <img src="{{$value.image}}" alt="">
+                    </li>
+                    <li>{{$value.title}}</li>
+                </ul>
+                {{/each}}
+            </script>
+        </div>
+        <div class="tabs">
+            <!-- 潮流女装、品牌男装、电脑办公 -->
+        <script id="tpl-tide" type="text/html">
+            {{each data}}
+            <div class="main">
+                {{if $value.title=="潮流女装"}}
+                <div class="goodname">—— {{$value.title}} ——</div>
+                {{else if $value.title=="品牌男装"}}
+                <div class="goodname" style="color: #fe6719">—— {{$value.title}} ——</div>
+                {{else}}
+                <div class="goodname" style="color: #5fc600;">—— {{$value.title}} ——</div>
+                {{/if}}
+                <div class="goodrow1">
+                    {{if $value.title=="潮流女装"}}
+                    <div class="goodcolum" id="{{$value.items[0].gid}}">
+                        <div class="good-title">{{$value.items[0].title}}</div>
+                        <div class="good-tip">精品打折</div>
+                        <div class="good-price bg-color-0">{{$value.items[0].price}}元</div>
+                        <div class="good-image">
+                            <img src="{{$value.items[0].image}}" alt="{{$value.items[0].title}}">
+                        </div>
+                    </div>
+                    {{else if $value.title=="品牌男装"}}
+                    <%for(var i=0;i<2;i++){%>
+                    <div class="goodcolum1" id="<%=$value.items[i].gid%>">
+                        <div class="good-title"><%=$value.items[i].title%></div>
+                        <div class="good-tip">火爆开售</div>
+                        <div class="good-image">
+                            <img src="<%=$value.items[i].image%>" alt="<%=$value.items[i].title%>">
+                        </div>
+                    </div>
+                    <%}%>
+                    {{else}}
+                    <div class="goodcolum" id="{{$value.items[0].gid}}">
+                        <div class="good-title">{{$value.items[0].title}}</div>
+                        <div class="good-tip">精品打折</div>
+                        <div class="good-price" style="background-color: green;">{{$value.items[0].price}}元</div>
+                        <div class="good-image">
+                            <img src="{{$value.items[0].image}}" alt="{{$value.items[0].title}}">
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{if $value.title=="潮流女装" || $value.title=="电脑办公"}}
+                    <div class="goodcolum">
+                        <%for(var i=1;i<3;i++){%>
+                        <div class="good-list" id="<%=$value.items[i].gid%>">
+                            <div class="goodlist-title"><%=$value.items[i].title%></div>
+                            <div class="goodlist-tip">品质精挑</div>
+                            <div class="goodlist-image">
+                                <img src="<%=$value.items[i].image%>" alt="<%=$value.items[i].title%>">
+                            </div>
+                        </div>
+                        <%}%>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="goodrow2">
+                    {{if $value.title=="品牌男装"}}
+                    <%for(var i=2;i<$value.items.length;i++){%>
+                    <div class="good-list" id="<%=$value.items[i].gid%>">
+                        <div class="goodlist-title"><%=$value.items[i].title%></div>
+                        <div class="goodlist-image">
+                            <img src="<%=$value.items[i].image%>" alt="<%=$value.items[i].title%>">
+                        </div>
+                        <div class="good-price">¥<%=$value.items[i].price%></div>
+                        <div class="good-priceline">¥<%=$value.items[i].price*2%></div>
+                    </div>
+                    <%}%>
+                    {{else}}
+                    <%for(var i=3;i<$value.items.length;i++){%>
+                        <div class="good-list" id="<%=$value.items[i].gid%>">
+                            <div class="goodlist-title"><%=$value.items[i].title%></div>
+                            <div class="goodlist-image">
+                                <img src="<%=$value.items[i].image%>" alt="<%=$value.items[i].title%>">
+                            </div>
+                            <div class="good-price">¥<%=$value.items[i].price%></div>
+                            <div class="good-priceline">¥<%=$value.items[i].price*2%></div>
+                        </div>
+                        <%}%>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </script>
+        </div>
+        <div class="recommend">
+            <div class="line"></div>
+            <div class="recom-wrap">
+                <div class="icon"></div>
+                <div class="text">为您推荐</div>
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="goodsrecom">
+            <!-- 为您推荐 -->
+            <script id="tpl-goods" type="text/html">
+                {{each data}}
+                <div class="goods-list" id="{{$value.gid}}">
+                    <div class="goods-image">
+                        <img src="{{$value.image}}" alt="{{$value.title}}">
+                    </div>
+                    <div class="goods-title">{{$value.title}}</div>
+                    <div class="goods-price">¥{{$value.price}}</div>
+                </div>
+                {{/each}}
+            </script>
+        </div>
+        <div id="footer">
+         <ul class="bottom-nav">
+             <li class="footer-img"></li>
+             <li>首页</li>
+         </ul>
+         <ul class="bottom-nav">
+            <li class="footer-img"></li>
+            <li>购物车</li>
+            <li class="spot"></li>
+        </ul>
+        <ul class="bottom-nav">
+            <li class="footer-img"></li>
+            <li>我的</li>
+        </ul>
+        </div>
+        <div class="search-component">
+            <div class="search-header">
+                <div class="close"></div>
+                <div class="search-wrap">
+                    <div class="search-input-wrap">
+                        <input type="text" placeholder="请输入宝贝名称" class="search">
+                    </div>
+                    <button class="search-btn"></button>
+                </div>  
+            </div>
+            <div class="search-main">
+                <script id="tpl-his-keyWords" type="text/html">
+                    {{if hiswords != null}}
+                    <div class="search-title-wrap">
+                        <div class="search-title">最近搜索</div>
+                        <div class="bin"></div>
+                    </div>
+                   <div class="search-keywords-wrap">
+                       {{each hiswords}}
+                       <div class="keywords">{{$value}}</div>
+                       {{/each}}
+                   </div>
+                   {{/if}}
+               </script>
+            </div>
+            <div class="search-main">
+                <script id="tpl-hot-keyWords" type="text/html">
+                    <div class="search-title-wrap">
+                        <div class="search-title">热门搜索</div>
+                    </div>
+                    <div class="search-keywords-wrap">
+                        {{each data}}
+                        <div class="keywords">{{$value.title}}</div>
+                        {{/each}}
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id="confirm">
+        <div id="prompt">
+            确认要删除吗？
+            <div class="yes">确认</div>
+            <div class="no">取消</div>
+        </div>
+    </div>
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="./javascripts/index.js"></script>
+    <script src="./javascripts/searchs.js"></script>
+    <script src="./javascripts/swiper.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="“format-detection”" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" href="./css/goods.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/better-scroll.js"></script>
+    <script src="javascripts/template-web.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="page">
+        <div class="search-header">
+            <div class="back"></div>
+            <div class="search">请输入宝贝名称</div>
+        </div>
+        <div class="goods-main">
+            <div class="classify-wrap">
+                <div>
+                    <div class="box">
+                        <script id="tpl-type" type="text/html">
+                            {{each data}}
+                            <div class="classify-item" id="{{$value.cid}}" >{{$value.title}}</div>
+                            {{/each}}
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goods-content">
+                <div>
+                    <div class="goods-content-main">
+                        <div class="bigbox">
+                            <script id="tpl-type-goods" type="text/html">
+                                {{each data}}
+                                <div class="goods-wrap">
+                                    <div class="classify-name">{{$value.title}}</div>
+                                    <div class="goods-items-wrap">
+                                        {{each $value.goods goods index}}
+                                        <ul id="{{goods.gid}}">
+                                            <li><img src="{{goods.image}}" alt=""></li>
+                                            <li>{{goods.title}}</li>
+                                        </ul>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </script>
+                        </div>
+                        <div class="no-data" style="display: none;">没有相关商品！</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-component">
+            <div class="search-header">
+                <div class="close"></div>
+                <div class="search-wrap">
+                    <div class="search-input-wrap">
+                        <input type="text" placeholder="请输入宝贝名称" class="search">
+                    </div>
+                    <button class="search-btn"></button>
+                </div>  
+            </div>
+            <div class="search-main">
+                <script id="tpl-his-keyWords" type="text/html">
+                    {{if hiswords != null}}
+                    <div class="search-title-wrap">
+                        <div class="search-title">最近搜索</div>
+                        <div class="bin"></div>
+                    </div>
+                   <div class="search-keywords-wrap">
+                       {{each hiswords}}
+                       <div class="keywords">{{$value}}</div>
+                       {{/each}}
+                   </div>
+                   {{/if}}
+               </script>
+            </div>
+            <div class="search-main">
+                <script id="tpl-hot-keyWords" type="text/html">
+                    <div class="search-title-wrap">
+                        <div class="search-title">热门搜索</div>
+                    </div>
+                    <div class="search-keywords-wrap">
+                        {{each data}}
+                        <div class="keywords">{{$value.title}}</div>
+                        {{/each}}
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id="confirm">
+        <div id="prompt">
+            确认要删除吗？
+            <div class="yes">确认</div>
+            <div class="no">取消</div>
+        </div>
+    </div>
+    <script>
+        var url = location.search;
+        var str;
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1).split('=');
+        }
+    </script>
+    <script src="./javascripts/goods.js"></script>
+    <script src="./javascripts/searchs.js"></script>
+</body>
+</html>

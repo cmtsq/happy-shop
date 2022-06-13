@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改收货地址</title>
+    <link rel="stylesheet" href="./css/revise.css">
+    <link rel="stylesheet" href="./stylesheets/ydui.css">
+    <link rel="stylesheet" href="./stylesheets/alert.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="./javascripts/ydui.flexible.js"></script>
+    <script src="./javascripts/alert.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="back"></div>
+        <div class="title">修改地址管理</div>
+        <div class="remove">删除</div>
+    </div>
+    <div class="main">
+        <ul>
+            <li>收货人</li>
+            <li><input type="text" placeholder="收货人姓名" class="linkname"></li>
+        </ul>
+        <ul>
+            <li>联系方式</li>
+            <li><input type="text" placeholder="联系人手机号" class="cellphone"></li>
+        </ul>
+        <ul>
+            <li>所在地区</li>
+            <li><input type="text" placeholder="请选择所在地区" readonly="" class="area">
+            </li>
+        </ul>
+        <ul>
+            <li>详细地址</li>
+            <li><input type="text" placeholder="街道详细地址" class="address"></li>
+        </ul>
+        <ul>
+            <li>设置为默认地址</li>
+            <li><input type="checkbox" class="check"></li>
+        </ul>
+        <button type="button" class="submit-save">修改</button>
+    </div>
+    <div class="bottom-toast">
+        <div class="toast"></div>
+    </div>
+    <div id="confirm">
+        <div id="prompt">
+            确认要删除吗？
+            <div class="yes">确认</div>
+            <div class="no">取消</div>
+        </div>
+    </div>
+    <script src="./javascripts/ydui.citys.js"></script>
+    <script src="./javascripts/ydui.js"></script>
+    <script>
+        //渲染要修改的地址信息
+        var url = location.search;
+        if(url.indexOf("?") != -1) {
+            var aid = url.substr(1).split('=');
+            aid.shift().toString();
+        }
+    </script>
+    <script src="./javascripts/revise.js"></script>
+</body>
+</html>

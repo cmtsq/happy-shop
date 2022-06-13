@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="./css/details.css">
+    <link rel="stylesheet" href="stylesheets/swiper-bundle.min.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <script src="./javascripts/jquery3.3.1.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <script src="javascripts/template-web.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="details-header">
+        <div class="back"></div>
+        <div class="tab-wrap">
+            <div class="tab-name active">商品</div>
+            <div class="tab-name">详情</div>
+            <div class="tab-name">评价</div>
+        </div>
+        <div id="cart-icon" class="cart-icon">
+            <div class="spot"></div>
+        </div>
+    </div>
+    <div class="sub-page">
+        <!-- 详情数据 -->
+        <div class="page" style="display: block;">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="goods-ele-main">
+                <script id="tpl-goods-detail" type="text/html">
+                    <div class="goods-title">{{data.title}}</div>
+                    <div class="price">¥{{data.price}}</div>
+                    <ul class="sales-wrap">
+                        <li>快递：<span class="freight">{{data.freight}}</span>元</li>
+                        <li>月销量{{data.sales}}件</li>
+                    </ul>
+                </script>
+            </div>
+            <div class="reviews-main">
+                <script id="tpl-goods-reviews" type="text/html">
+                    {{if data=="没有数据"}}
+                    <div class="reviews-title">商品评价(0)</div>
+                    <div class="no-data">暂无评价！</div>
+                    {{else}}
+                    <div class="reviews-title">商品评价({{pageinfo.total}})</div>
+                    <div class="reviews-wrap">
+                        {{each data}}
+                        <div class="reviews-list">
+                            <div class="uinfo">
+                                <div class="head">
+                                    <img alt="" src="{{$value.head}}">
+                                </div>
+                                <div class="nickname">{{$value.nickname}}</div>
+                            </div>
+                            <div class="reviews-content">{{$value.content}}</div>
+                            <div class="reviews-date">{{$value.times}}</div>
+                        </div>
+                        {{/each}}
+                        <div class="reviews-more">查看更多评价</div>
+                    </div>
+                    {{/if}}
+                </script>
+            </div>
+            <div class="mask"></div>
+            <div class="cart-panel down">
+                <div class="goods-info">
+                    <script id="tpl-goods-info" type="text/html">
+                        <div class="close-panel-wrap">
+                            <div class="spot"></div>
+                            <div class="line"></div>
+                            <div class="close"></div>
+                        </div>
+                        <div class="goods-img">
+                            <img src="{{data.images[0]}}" alt="">
+                        </div>
+                        <div class="goods-wrap">
+                            <div class="goods-title">{{data.title}}</div>
+                            <div class="price">{{data.price}}</div>
+                            <div class="goods-code">{{data.gid}}</div>
+                        </div>
+                    </script>
+                </div>
+                <div class="attr-wrap">
+                    <script id="tpl-goods-spec" type="text/html">
+                        {{each data}}
+                        <div class="attr-list">
+                            <div class="attr-name" id="{{$value.attrid}}">{{$value.title}}</div>
+                            <div class="val-wrap">
+                                {{each $value.values spec index}}
+                                <span class="val" id="{{spec.vid}}">{{spec.value}}</span>
+                                {{/each}}
+                            </div>
+                        </div>
+                        {{/each}}
+                    </script>
+                </div>
+                <div class="amount-wrap">
+                    <div class="amount-name">购买数量</div>
+                    <div class="amount-input-wrap">
+                        <a href="#" class="dec active">-</a>
+                        <input type="text" name="" class="amount-input" value="1" />
+                        <a href="#" class="inc">+</a>
+                    </div>
+                </div>
+                <div class="sure-btn">确定</div>
+            </div>
+            <div class="bottom-btn-wrap">
+                <div class="btn fav">移入收藏</div>
+                <div class="btn cart">加入购物车</div>
+            </div>
+        </div>
+        <!-- 内容数据 -->
+        <div class="page" style="display: none;">
+            <div class="content"></div>
+        </div>
+        <!-- 评价数据 -->
+        <div class="page reviews-data" style="display: none;">
+            <div class="reviews-main">
+            </div>
+        </div>
+    </div>
+    <div class="bottom-toast">
+        <div class="toast"></div>
+    </div>
+    <script src="ogLaVp_data/jquery.js"></script>
+    <script src="ogLaVp_data/requestAnimationFrame.js"></script>
+    <script src="ogLaVp_data/jquery_002.js"></script>
+    <script src="ogLaVp_data/stopExecutionOnTimeout-6c99970ade81e43be51fa877be0f7600.js"></script>
+    <script src="./javascripts/swiper-bundle.min.js"></script>
+    <script src="./javascripts/swiper.js"></script>
+    <script>
+        //返回上一页
+        $('.back').click(function(){
+            history.back(-1);
+        });
+        //地址栏得到商品的gid
+        var url = location.search;
+        var str;
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1).split('=');
+        }
+    </script>
+    <script src="./javascripts/details.js"></script>
+</body>
+</html>

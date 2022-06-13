@@ -1,0 +1,63 @@
+
+.mask{
+    position: absolute;
+    top: 0;
+    display: none;
+    height:200rem;
+    background: rgba(0,0,0,0.4);
+    z-index: 9999;
+    width: 100%;
+}
+.close-icon{
+    font-size: 0.44rem;
+    font-weight: 700;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    width: 1rem;
+    text-align: center;
+}
+.action-sheet {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    display: none;
+    background: #fff;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 11111;
+}
+.menu-name{
+    border-left:6px solid #FFD700 ;
+    height: 0.5rem;
+    text-indent: 0.2rem;
+    line-height: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #0B308D;
+}
+.action-sheet ul li{
+    margin: 0 0.4rem;
+    color: #333;
+    font-weight: 700;
+    font-size: .7rem;
+    height: 2.5rem;
+    text-align: center;
+    line-height: 2.5rem;
+    border-top: 1px solid #eee;
+}
+.menu-title{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    margin: 0 0.4rem;
+    justify-content: space-between;
+    line-height: 3rem;
+    background: #fff;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+}
+.scroll-mask{
+    height: 100%;
+    overflow:scroll;
+    overflow-y:hidden;
+}
